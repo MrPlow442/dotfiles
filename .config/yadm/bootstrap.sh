@@ -104,15 +104,15 @@ fi
 # fi
 
 # Set macOS defaults
-# print_status "Setting macOS defaults..."
+print_status "Setting macOS defaults..."
 
 # Show hidden files in Finder
-# defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # Show file extensions
 # defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
-# print_success "macOS defaults configured"
+print_success "macOS defaults configured"
 
 print_success "macOS bootstrap completed successfully!"
 print_status "Please restart your terminal to see all changes"
