@@ -46,25 +46,6 @@ else
     print_success "Oh My Zsh already installed"
 fi
 
-# Install Homebrew if not present
-print_status "Installing Homebrew..."
-if ! command -v brew &> /dev/null; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-    # Add Homebrew to PATH for Apple Silicon Macs
-    if [[ $(uname -m) == "arm64" ]]; then
-        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-        eval "$(/opt/homebrew/bin/brew shellenv)"
-    else
-        echo 'eval "$(/usr/local/bin/brew shellenv)"' >> ~/.zprofile
-        eval "$(/usr/local/bin/brew shellenv)"
-    fi
-    print_success "Homebrew installed successfully"
-else
-    print_success "Homebrew already installed"
-    brew update
-fi
-
 # Install packages from Brewfile if it exists
 if [[ -f "$HOME/.Brewfile" ]]; then
     print_status "Installing packages from Brewfile..."
@@ -77,6 +58,10 @@ print_status "Installing Zinit..."
 if [[ ! -d "$HOME/.local/share/zinit" ]]; then
     bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
     print_success "Zinit installed"
+    # TODO: Add zinit plugins to zshrc:
+    # zinit light zdharma-continuum/fast-syntax-highlighting
+    # zinit light zsh-users/zsh-autosuggestions
+    # zinit light zsh-users/zsh-completions
 else
     print_success "Zinit already installed"
 fi
