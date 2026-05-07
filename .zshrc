@@ -105,6 +105,23 @@ source $ZSH/oh-my-zsh.sh
 
 alias zsh-config="code ~/.zshrc"
 alias ghostty-config="code /Users/mlovrekovic/Library/Application\ Support/com.mitchellh.ghostty/config"
+alias ll="ls -alhF"
+
+### Custom functions
+# tcode() {
+#   if [ -z "$1" ]; then
+#     echo "Usage: tcode <filename>"
+#     return 1
+#   fi
+#   touch "$1" && code "$1"
+# }
+tcode() {
+  if [ -z "$1" ]; then
+    echo "Usage: tcode <filename>"
+    return 1
+  fi
+  mkdir -p "$1:h" && touch "$1" && code "$1"
+}
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then

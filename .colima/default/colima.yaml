@@ -1,16 +1,16 @@
 # Number of CPUs to be allocated to the virtual machine.
 # Default: 2
-cpu: 4
+cpu: 2
 
 # Size of the disk in GiB to be allocated to the virtual machine for container data.
 # NOTE: value can only be increased after virtual machine has been created.
 #
 # Default: 100
-disk: 60
+disk: 100
 
 # Size of the memory in GiB to be allocated to the virtual machine.
 # Default: 2
-memory: 4
+memory: 2
 
 # Architecture of the virtual machine (x86_64, aarch64, host).
 #
@@ -38,7 +38,7 @@ kubernetes:
   # Kubernetes version to use.
   # This needs to exactly match a k3s version https://github.com/k3s-io/k3s/releases
   # Default: latest stable release
-  version: v1.33.3+k3s1
+  version: v1.33.4+k3s1
   
   # Additional args to pass to k3s https://docs.k3s.io/cli/server
   # Default: traefik is disabled
@@ -63,18 +63,18 @@ network:
   # Assign reachable IP address to the virtual machine.
   # NOTE: this is currently macOS only and ignored on Linux.
   # Default: false
-  address: true
+  address: false
   
   # Network mode for the virtual machine (shared, bridged).
   # NOTE: this is currently macOS only and ignored on Linux.
   # Default: shared
-  mode: ""
+  mode: shared
   
   # Network interface to use for bridged mode.
   # This is only used when mode is set to bridged.
   # NOTE: this is currently macOS only and ignored on Linux.
   # Default: en0
-  interface: ""
+  interface: en0
   
   # Use the assigned IP address as the preferred route for the VM.
   # Note: this only has an effect when `address` is set to true.
@@ -152,7 +152,7 @@ portForwarder: ssh
 
 # Utilise rosetta for amd64 emulation (requires m1 mac and vmType `vz`)
 # Default: false
-rosetta: true
+rosetta: false
 
 # Enable foreign architecture emulation via binfmt (e.g. amd64 on arm64, arm64 on amd64)
 # Default: true

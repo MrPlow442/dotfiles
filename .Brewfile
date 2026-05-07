@@ -13,4 +13,6 @@ brew "docker-credential-helper"
 # Applications (casks)
 cask "ghostty"
 cask "font-jetbrains-mono-nerd-font"
+cask "dockdoor"
+cask "rectangle"
 cask "visual-studio-code"
