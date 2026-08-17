@@ -9,6 +9,7 @@ brew "docker"
 brew "docker-compose"
 brew "docker-buildx"
 brew "docker-credential-helper"
+brew "mole"
 
 # Applications (casks)
 cask "ghostty"
